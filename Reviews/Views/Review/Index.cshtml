@@ -1,0 +1,24 @@
+﻿@model Reviews.Models.ReviewModel
+@{
+    ViewData["Title"] = "Форма отзыва";
+}
+
+<div id="inline">
+    <h2>Напишите Ваш отзыв</h2>
+
+    <form asp-controller="Review" asp-action="Add" method="post" class="feedback-form">
+        <div>
+            <input placeholder="Ваше имя" asp-for="Author" class="txt" />
+        </div>
+        <div>
+            <textarea placeholder="Ваш отзыв" asp-for="Content" class="txtarea"></textarea>
+        </div>
+        <div class="btn-feedback">
+            <button type="submit" id="send">Добавить отзыв</button>
+        </div>
+    </form>
+    
+    <form asp-controller="Home" asp-action="" method="get" style="display: flex; justify-content: center;">
+        <button id="back" type="submit">Вернуться</button>
+    </form>
+</div>

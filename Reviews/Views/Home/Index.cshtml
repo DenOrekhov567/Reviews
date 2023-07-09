@@ -1,0 +1,37 @@
+﻿@model List<ReviewModel>
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<h1 text-align:center>Название фильма: Флэш</h1>
+<div class="wrapper">
+    <div class="card__films">
+        <img src="/image/flash.jpg" alt="Фильм" class="card__image">
+        <span class="card__films-desc">
+            Эзра Миллер в роли супергероя из вселенной DC, в фантастическом боевике режиссера фильма «Оно». Физик Барри Аллен подвергается облучению в ходе неудачного эксперимента.<br><br>
+            К своему удивлению, герой не только остается жив, но и вскоре обнаруживает в себе суперспособности.<br><br>
+            Теперь, нарушая все законы физики, он может передвигаться со сверхзвуковой скоростью.
+        </span>
+
+    </div>
+
+    <br>
+    <form asp-controller="Review" asp-action="" method="get" style="display: flex; justify-content: flex-end;">
+        <button id="send">Добавить отзыв</button>
+    </form>
+    <br>
+    <span class="reviews__film">Что думают зрители о фильме?</span>
+
+    @foreach(ReviewModel review in @Model)
+    {
+        <div class="reviews__item">
+            <div class="reviews__card-all">
+                <img src="/image/human.jpg" alt="Пользователь" class="reviews__card-image">
+                <div class="reviews__card">
+                    <span class="reviews__card-author">@review.Author</span>
+                    <span class="reviews__card-text">@review.Content</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>
